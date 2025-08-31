@@ -16,7 +16,7 @@ const Hero = () => {
         Zaid Ahmed
       </h1>
       <h2 className="text-xl md:text-2xl text-muted-foreground mb-8 animate-fade-in animate-delay-300">
-        Associate AI-ML Engineer at Tesseract Innovations
+        AI-ML Engineer at Tesseract Innovations
       </h2>
       <p className="max-w-2xl text-muted-foreground mb-8 animate-fade-in animate-delay-500">
         Specializing in Computer Vision and Deep Learning solutions, with a track record of delivering innovative AI projects 
