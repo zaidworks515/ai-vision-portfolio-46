@@ -19,8 +19,7 @@ const Hero = () => {
         AI-ML Engineer at Tesseract Innovations
       </h2>
       <p className="max-w-2xl text-muted-foreground mb-8 animate-fade-in animate-delay-500">
-        Specializing in Computer Vision and Deep Learning solutions, with a track record of delivering innovative AI projects 
-        and a passion for solving complex problems.
+        Focused on Computer Vision, Deep Learning, Agentic AI, and Smart AI Solutions. Delivering innovative projects with a passion for solving complex problems
       </p>
       <div className="flex gap-4 animate-fade-in animate-delay-700">
         <Button variant="outline" size="icon" asChild className="hover:scale-110 transition-transform duration-200">
