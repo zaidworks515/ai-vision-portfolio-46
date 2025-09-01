@@ -47,7 +47,7 @@ const About = () => {
               <div className="group hover:bg-slate-50 p-4 rounded-lg transition-all duration-200">
                 <h4 className="font-semibold text-lg group-hover:text-primary transition-colors">AI-ML Engineer</h4>
                 <p className="text-muted-foreground font-medium">Freelancing Projects</p>
-                <p className="text-sm text-muted-foreground font-medium">(Jun 2023 - Present)</p>
+                <p className="text-sm text-muted-foreground font-medium">(Jan 2023 - Present)</p>
               </div>
             </div>
           </CardContent>
