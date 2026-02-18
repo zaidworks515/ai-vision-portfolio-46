@@ -1,112 +1,177 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { ExternalLink, Play, Clock, CheckCircle } from "lucide-react";
 import { Badge } from "./ui/badge";
+import { SectionHeader } from "./About";
 
 const projects = [
   {
-    title: "Amora",
-    description: "Brazil embassy query classifier for candidate eligibility detection",
+    title: "MeasureMates",
+    description: "AI project for measuring and analyzing cow postures using 2D pose estimation & segmentation of livestock animals.",
     status: "Completed",
-    tags: ["NLP", "Classification"]
-  },
-  {
-    title: "Medical Prescription Suggestor",
-    description: "Suggestive medical formula generator based on diseases and symptoms",
-    status: "Completed",
-    tags: ["AI", "Healthcare"]
-  },
-  {
-    title: "Career Metro Mapping AI",
-    description: "A career guide powered by OpenAI",
-    status: "Completed",
-    tags: ["OpenAI", "Career Guidance"]
-  },
-  {
-    title: "Vtryon",
-    description: "Virtual try-on solution",
-    status: "In Development",
-    tags: ["Computer Vision", "AI"]
-  },
-  {
-    title: "Project & Resource Management System",
-    description: "PowerBI-based project management solution",
-    status: "Completed",
-    tags: ["PowerBI", "Management"]
+    tags: ["Computer Vision", "Pose Estimation", "Segmentation"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
+    featured: true,
   },
   {
     title: "3D Teeth Segmentation",
-    description: "Segmentation of inter oral scans for dental imaging",
+    description: "Segmentation of intraoral scans for dental imaging using advanced 3D mesh processing techniques.",
     status: "Completed",
-    tags: ["Computer Vision", "3D Mesh Segmentation"]
+    tags: ["Computer Vision", "3D Mesh Segmentation", "Healthcare"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
+    featured: true,
   },
   {
-    title: "Ebay Sports Card Filter",
-    description: "Automated filtering system for sports cards on eBay",
+    title: "Amora",
+    description: "Brazil embassy query classifier for candidate eligibility detection using NLP and classification models.",
     status: "Completed",
-    tags: ["Automation", "Web Scraping", "Data Sorting"]
+    tags: ["NLP", "Classification", "Immigration"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
   },
   {
-    title: "Automated Captcha Solver for a visa application platform ",
-    description: "Custom OCR-based Captcha Solver using Computer Vision",
+    title: "Medical Prescription Suggestor",
+    description: "Suggestive medical formula generator based on diseases and symptoms using AI-powered recommendation.",
     status: "Completed",
-    tags: ["Computer Vision", "OCR"]
+    tags: ["AI", "Healthcare", "NLP"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
   },
   {
-    title: "Beans and More assistant",
-    description: "A conversational chatbot",
+    title: "Career Metro Mapping AI",
+    description: "A career guide powered by OpenAI that maps career paths and provides personalized guidance.",
     status: "Completed",
-    tags: ["NLP", "Chatbot"]
+    tags: ["OpenAI", "Career Guidance", "Agentic AI"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
   },
   {
-    title: "Twitter Bot",
-    description: "Swaggy X (twitter) bot for Game5Ball official Page. This bot is capable of interacting with users and generate new content posts to increase the engagement and many more to come soon.",
+    title: "Vtryon",
+    description: "Virtual try-on solution using computer vision and AI for fashion e-commerce.",
     status: "In Development",
-    tags: ["Bot", "Crypto"]
+    tags: ["Computer Vision", "AI", "E-commerce"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
+  },
+  {
+    title: "Project & Resource Management System",
+    description: "PowerBI-based project management solution with AI-driven resource optimization.",
+    status: "Completed",
+    tags: ["PowerBI", "Management", "Data Analytics"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
+  },
+  {
+    title: "eBay Sports Card Filter",
+    description: "Automated filtering and sorting system for sports cards on eBay using web scraping and AI classification.",
+    status: "Completed",
+    tags: ["Automation", "Web Scraping", "Data Sorting"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
+  },
+  {
+    title: "Captcha Solver",
+    description: "Custom OCR-based Captcha Solver using Computer Vision for a visa application platform.",
+    status: "Completed",
+    tags: ["Computer Vision", "OCR", "Automation"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
+  },
+  {
+    title: "Beans & More Assistant",
+    description: "A conversational chatbot for customer service with intelligent intent recognition.",
+    status: "Completed",
+    tags: ["NLP", "Chatbot", "Conversational AI"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
+  },
+  {
+    title: "Twitter/X Engagement Agent",
+    description: "Swaggy X bot for Game5Ball's official page – automated engagement, AI-generated content, and growth analytics.",
+    status: "In Development",
+    tags: ["Agentic AI", "Bot", "Social Media"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
   },
   {
     title: "Search Info Compiler",
-    description: "Multi-platform profile matching using summary analysis and profile features",
+    description: "Multi-platform profile matching using AI-driven summary analysis and cross-platform profile features.",
     status: "In Development",
-    tags: ["AI", "Data Analysis"]
+    tags: ["AI", "Data Analysis", "NLP"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
   },
   {
     title: "Web3 Trading Chatbot",
-    description: "AI-powered crypto guide with action-ready agents inspired by Chatoshi",
+    description: "AI-powered crypto guide with action-ready agents. Supports buy/sell/transfer, real-time market updates, and voice commands.",
     status: "In Development",
-    tags: ["NLP", "Trading", "Web Surfing"]
-  }
+    tags: ["NLP", "Trading", "Agentic AI", "Web3"],
+    demoLink: "https://drive.google.com/drive/folders/YOUR_LINK_HERE",
+    featured: true,
+  },
 ];
+
+const statusConfig = {
+  Completed: { icon: CheckCircle, color: "text-primary border-primary/30 bg-primary/10" },
+  "In Development": { icon: Clock, color: "text-yellow-400 border-yellow-400/30 bg-yellow-400/10" },
+};
 
 const Projects = () => {
   return (
-    <section className="py-16 px-4" id="projects">
-      <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in">Featured Projects</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {projects.map((project, index) => (
-          <Card 
-            key={project.title} 
-            className="hover:shadow-lg transition-all duration-300 hover:scale-105 hover:-translate-y-2 animate-fade-in group"
-            style={{ animationDelay: `${index * 100}ms` }}
-          >
-            <CardHeader>
-              <CardTitle className="flex justify-between items-center">
-                <span className="group-hover:text-primary transition-colors duration-200">{project.title}</span>
-                <Badge variant={project.status === "Completed" ? "default" : "secondary"}>
-                  {project.status}
-                </Badge>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="mb-4 text-muted-foreground">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <Badge key={tag} variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors duration-200">
-                    {tag}
-                  </Badge>
-                ))}
+    <section id="projects" className="py-24 px-4 md:px-8 relative">
+      <div className="max-w-7xl mx-auto">
+        <SectionHeader label="// projects.showcase" title="Featured Projects" />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => {
+            const status = statusConfig[project.status as keyof typeof statusConfig];
+            const StatusIcon = status.icon;
+
+            return (
+              <div
+                key={project.title}
+                className={`group terminal-bg rounded-xl border glow-border-hover transition-all duration-300 overflow-hidden flex flex-col animate-fade-in-up ${
+                  project.featured ? "border-primary/30" : "border-border/50"
+                }`}
+                style={{ animationDelay: `${(index % 6) * 100}ms` }}
+              >
+                {project.featured && (
+                  <div className="px-4 py-1.5 bg-primary/10 border-b border-primary/20">
+                    <span className="text-xs font-mono text-primary">⭐ Featured Project</span>
+                  </div>
+                )}
+
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <h3 className="font-bold text-foreground group-hover:text-primary transition-colors duration-200 text-lg leading-tight">
+                      {project.title}
+                    </h3>
+                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono border shrink-0 ${status.color}`}>
+                      <StatusIcon className="h-3 w-3" />
+                      {project.status}
+                    </span>
+                  </div>
+
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-1">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 rounded text-xs font-mono border border-border/40 text-muted-foreground bg-secondary/20 hover:border-primary/40 hover:text-primary transition-colors duration-150"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <a
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/30 bg-primary/5 text-primary text-sm font-mono hover:bg-primary/15 hover:shadow-[0_0_15px_hsl(174_100%_50%/0.25)] transition-all duration-300 group/btn"
+                  >
+                    <Play className="h-3.5 w-3.5" />
+                    <span>Watch Demo</span>
+                    <ExternalLink className="h-3 w-3 ml-auto group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-200" />
+                  </a>
+                </div>
               </div>
-            </CardContent>
-          </Card>
-        ))}
+            );
+          })}
+        </div>
+
+        <p className="text-center text-xs font-mono text-muted-foreground mt-8">
+          * Demo links lead to Google Drive video demonstrations. Replace <code className="text-primary">YOUR_LINK_HERE</code> with actual drive links.
+        </p>
       </div>
     </section>
   );
