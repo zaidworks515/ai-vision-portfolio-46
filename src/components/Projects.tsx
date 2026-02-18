@@ -5,7 +5,7 @@ import { SectionHeader } from "./About";
 const projects = [
   {
   title: "Voice Intelligence Platform",
-  description: "AI-driven automated customer support system with real-time conversational AI using Whisper ASR and natural TTS. Enhanced transcription with diarization, normalization, and noise reduction. Designed agentic AI workflows with context-aware NLP and smart escalation. Implemented vector-based semantic search for accurate information retrieval and leveraged Apache Kafka for scalable, low-latency streaming.",
+  description: "Next-generation AI voice intelligence platform redefining automated customer engagement.",
   status: "Completed",
   tags: ["Conversational AI", "ASR", "TTS", "Agentic AI", "Kafka", "Semantic Search"],
   demoLink: "https://drive.google.com/file/d/1EyfF34y0Rwuyg-9Qhp1vjxoOqFyG6iuk/view?usp=drive_link",
@@ -112,6 +112,7 @@ const statusConfig = {
   "In Development": { icon: Clock, color: "text-yellow-400 border-yellow-400/30 bg-yellow-400/10" },
 };
 
+
 const Projects = () => {
   return (
     <section id="projects" className="py-24 px-4 md:px-8 relative">
@@ -120,20 +121,25 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => {
-            const status = statusConfig[project.status as keyof typeof statusConfig];
+            const status =
+              statusConfig[project.status as keyof typeof statusConfig];
             const StatusIcon = status.icon;
 
             return (
               <div
                 key={project.title}
                 className={`group terminal-bg rounded-xl border glow-border-hover transition-all duration-300 overflow-hidden flex flex-col animate-fade-in-up ${
-                  project.featured ? "border-primary/30" : "border-border/50"
+                  project.featured
+                    ? "border-primary/30"
+                    : "border-border/50"
                 }`}
                 style={{ animationDelay: `${(index % 6) * 100}ms` }}
               >
                 {project.featured && (
                   <div className="px-4 py-1.5 bg-primary/10 border-b border-primary/20">
-                    <span className="text-xs font-mono text-primary">⭐ Featured Project</span>
+                    <span className="text-xs font-mono text-primary">
+                      ⭐ Featured Project
+                    </span>
                   </div>
                 )}
 
@@ -142,13 +148,17 @@ const Projects = () => {
                     <h3 className="font-bold text-foreground group-hover:text-primary transition-colors duration-200 text-lg leading-tight">
                       {project.title}
                     </h3>
-                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono border shrink-0 ${status.color}`}>
+                    <span
+                      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono border shrink-0 ${status.color}`}
+                    >
                       <StatusIcon className="h-3 w-3" />
                       {project.status}
                     </span>
                   </div>
 
-                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-1">{project.description}</p>
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed flex-1">
+                    {project.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.tags.map((tag) => (
@@ -161,25 +171,23 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  <a
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/30 bg-primary/5 text-primary text-sm font-mono hover:bg-primary/15 hover:shadow-[0_0_15px_hsl(174_100%_50%/0.25)] transition-all duration-300 group/btn"
-                  >
-                    <Play className="h-3.5 w-3.5" />
-                    <span>Watch Demo</span>
-                    <ExternalLink className="h-3 w-3 ml-auto group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-200" />
-                  </a>
+                  {project.demoLink && (
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg border border-primary/30 bg-primary/5 text-primary text-sm font-mono hover:bg-primary/15 hover:shadow-[0_0_15px_hsl(174_100%_50%/0.25)] transition-all duration-300 group/btn"
+                    >
+                      <Play className="h-3.5 w-3.5" />
+                      <span>Watch Demo</span>
+                      <ExternalLink className="h-3 w-3 ml-auto group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-200" />
+                    </a>
+                  )}
                 </div>
               </div>
             );
           })}
         </div>
-
-        <p className="text-center text-xs font-mono text-muted-foreground mt-8">
-          * Demo links lead to Google Drive video demonstrations. Replace <code className="text-primary">YOUR_LINK_HERE</code> with actual drive links.
-        </p>
       </div>
     </section>
   );
