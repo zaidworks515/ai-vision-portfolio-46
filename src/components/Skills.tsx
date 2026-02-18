@@ -1,52 +1,104 @@
-
-import { Card, CardContent } from "./ui/card";
+import { SectionHeader } from "./About";
+import { useState } from "react";
 
 const skillCategories = [
   {
     title: "Core AI/ML",
-    skills: ["Computer Vision", "Deep Learning", "Machine Learning", "Natural Language Processing", "Large Language Models", "Neural Networks", "GenAI", "Agentic AI"]
+    icon: "🧠",
+    color: "from-primary/20 to-primary/5",
+    skills: ["Computer Vision", "Deep Learning", "Machine Learning", "NLP", "LLMs", "Neural Networks", "GenAI", "Agentic AI"],
   },
   {
-    title: "Programming & Frameworks",
-    skills: ["Python", "TensorFlow", "PyTorch", "Flask", "SQL", "OpenAI", "FastAPI", "Django", "LangChain", "Gork"]
+    title: "Languages & Frameworks",
+    icon: "⚙️",
+    color: "from-blue-500/20 to-blue-500/5",
+    skills: ["Python", "TensorFlow", "PyTorch", "FastAPI", "Flask", "Django", "LangChain", "OpenAI SDK"],
   },
   {
-    title: "Data Science",
-    skills: ["Data Analysis", "Time Series Analysis", "Pattern Recognition", "Database Management"]
+    title: "Data & Engineering",
+    icon: "📊",
+    color: "from-purple-500/20 to-purple-500/5",
+    skills: ["Data Preprocessing", "Feature Engineering", "Data Annotation", "PostgreSQL", "MySQL", "Redis", "Apache Kafka"],
   },
   {
-    title: "Professional Skills",
-    skills: ["Project Management", "Software Development", "Problem Solving", "Communication", "Attention to Detail"]
-  }
+    title: "DevOps & Cloud",
+    icon: "☁️",
+    color: "from-orange-500/20 to-orange-500/5",
+    skills: ["Docker", "AWS", "Azure", "CI/CD", "REST APIs", "Backend Development", "Cloud Deployment"],
+  },
+  {
+    title: "Specialized Domains",
+    icon: "🔬",
+    color: "from-primary/20 to-primary/5",
+    skills: ["OCR", "Text-to-Speech", "Pose Estimation", "3D Mesh Segmentation", "Web Scraping", "Automation"],
+  },
+  {
+    title: "Professional",
+    icon: "🤝",
+    color: "from-pink-500/20 to-pink-500/5",
+    skills: ["Project Management", "Problem Solving", "Open-Source Contributor", "Attention to Detail", "Communication"],
+  },
 ];
 
 const Skills = () => {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+
   return (
-    <section className="py-16 px-4 bg-gradient-to-r from-white/80 to-slate-100/80 backdrop-blur-sm" id="skills">
-      <h2 className="text-3xl font-bold text-center mb-12 animate-fade-in">Skills</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-        {skillCategories.map((category, index) => (
-          <Card 
-            key={category.title} 
-            className="hover:shadow-lg transition-all duration-300 hover:scale-105 animate-fade-in bg-white/90 backdrop-blur-sm border-white/50"
-            style={{ animationDelay: `${index * 200}ms` }}
-          >
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-4 text-primary">{category.title}</h3>
+    <section id="skills" className="py-24 px-4 md:px-8 relative circuit-pattern">
+      <div className="max-w-6xl mx-auto">
+        <SectionHeader label="// skills.tech_stack" title="Skills & Technologies" />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {skillCategories.map((category, catIdx) => (
+            <div
+              key={category.title}
+              className={`terminal-bg rounded-xl p-6 border border-border/50 hover:border-primary/30 glow-border-hover transition-all duration-300 animate-fade-in-up`}
+              style={{ animationDelay: `${catIdx * 100}ms` }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <span className="text-2xl">{category.icon}</span>
+                <h3 className="font-bold text-foreground">{category.title}</h3>
+              </div>
+
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
+                {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1 bg-slate-200/80 rounded-full text-sm hover:bg-primary hover:text-primary-foreground transition-all duration-200 cursor-default hover:scale-110"
-                    style={{ animationDelay: `${(index * 200) + (skillIndex * 50)}ms` }}
+                    onMouseEnter={() => setHoveredSkill(skill)}
+                    onMouseLeave={() => setHoveredSkill(null)}
+                    className={`px-3 py-1 rounded-full text-xs font-mono border transition-all duration-200 cursor-default ${
+                      hoveredSkill === skill
+                        ? "border-primary bg-primary/15 text-primary shadow-[0_0_10px_hsl(174_100%_50%/0.3)]"
+                        : "border-border/50 bg-secondary/30 text-muted-foreground hover:border-primary/40 hover:text-primary/80"
+                    }`}
                   >
                     {skill}
                   </span>
                 ))}
               </div>
-            </CardContent>
-          </Card>
-        ))}
+            </div>
+          ))}
+        </div>
+
+        {/* Publications */}
+        <div className="mt-12 terminal-bg rounded-xl p-6 border border-primary/20 glow-border animate-fade-in-up">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-primary font-mono text-sm">📦</span>
+            <h3 className="font-bold text-foreground">Open Source Contributions</h3>
+          </div>
+          <p className="text-muted-foreground text-sm mb-3">
+            Published open-source datasets on Kaggle – leading the gathering, labeling, analysis & model training process.
+          </p>
+          <a
+            href="https://www.kaggle.com/datasets/zaidworks0508"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-mono text-primary hover:underline"
+          >
+            <span>kaggle.com/datasets/zaidworks0508</span>
+            <span>↗</span>
+          </a>
+        </div>
       </div>
     </section>
   );
