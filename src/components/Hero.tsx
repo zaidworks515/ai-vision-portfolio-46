@@ -4,11 +4,11 @@ import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 import { useState, useEffect } from "react";
 
 const roles = [
-  "AI-ML Engineer",
-  "Python Developer",
-  "Computer Vision Specialist",
-  "Agentic AI Builder",
-];
+"AI-ML Engineer",
+"Python Developer",
+"Computer Vision Specialist",
+"Agentic AI Builder"];
+
 
 const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -85,32 +85,32 @@ const Hero = () => {
             {/* Stats row */}
             <div className="flex gap-8 mb-8 animate-fade-in-up animate-delay-400">
               {[
-                { value: "3+", label: "Years XP" },
-                { value: "12+", label: "Projects" },
-                { value: "3", label: "Awards" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
+              { value: "3+", label: "Years XP" },
+              { value: "12+", label: "Projects" },
+              { value: "3", label: "Awards" }].
+              map((stat) =>
+              <div key={stat.label} className="text-center">
                   <div className="text-3xl font-extrabold text-accent">{stat.value}</div>
                   <div className="text-xs text-primary-foreground/60 uppercase tracking-wider font-medium">{stat.label}</div>
                 </div>
-              ))}
+              )}
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-3 mb-8 animate-fade-in-up animate-delay-500">
               <Button
                 onClick={scrollToProjects}
-                className="bg-accent text-accent-foreground hover:brightness-110 font-semibold px-6 py-3 shadow-lg transition-all duration-200"
-              >
+                className="bg-accent text-accent-foreground hover:brightness-110 font-semibold px-6 py-3 shadow-lg transition-all duration-200">
+
                 <FolderOpen className="mr-2 h-4 w-4" />
                 View Projects
               </Button>
               <Button
                 onClick={scrollToContact}
                 variant="outline"
-                className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-6 py-3 transition-all duration-200"
-              >
-                <Mail className="mr-2 h-4 w-4" />
+                className="border-primary-foreground/30 text-primary-foreground font-semibold px-6 py-3 transition-all duration-200 bg-lime-700 hover:bg-lime-600">
+
+                <Mail className="mr-2 h-4 w-4 text-primary" />
                 Get In Touch
               </Button>
             </div>
@@ -118,25 +118,25 @@ const Hero = () => {
             {/* Social Links */}
             <div className="flex gap-3 animate-fade-in-up animate-delay-600">
               {[
-                { href: "https://github.com/zaidworks515", icon: Github, label: "GitHub" },
-                { href: "https://linkedin.com/in/zaidworks515", icon: Linkedin, label: "LinkedIn" },
-                { href: "https://www.kaggle.com/zaidworks0508", label: "Kaggle", kaggle: true },
-              ].map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 hover:bg-primary-foreground/20 transition-all duration-200 text-primary-foreground"
-                  aria-label={social.label}
-                >
-                  {social.kaggle ? (
-                    <span className="font-bold text-sm">K</span>
-                  ) : (
-                    <social.icon className="h-4 w-4" />
-                  )}
+              { href: "https://github.com/zaidworks515", icon: Github, label: "GitHub" },
+              { href: "https://linkedin.com/in/zaidworks515", icon: Linkedin, label: "LinkedIn" },
+              { href: "https://www.kaggle.com/zaidworks0508", label: "Kaggle", kaggle: true }].
+              map((social) =>
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 hover:bg-primary-foreground/20 transition-all duration-200 text-primary-foreground"
+                aria-label={social.label}>
+
+                  {social.kaggle ?
+                <span className="font-bold text-sm">K</span> :
+
+                <social.icon className="h-4 w-4" />
+                }
                 </a>
-              ))}
+              )}
             </div>
           </div>
 
@@ -158,8 +158,8 @@ const Hero = () => {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float text-primary-foreground/50">
         <ChevronDown className="h-6 w-6" />
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default Hero;
