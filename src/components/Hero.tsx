@@ -98,19 +98,42 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-3 mb-8 animate-fade-in-up animate-delay-500">
-              <Button
+              {/* <Button
                 onClick={scrollToProjects}
                 className="bg-accent text-accent-foreground hover:brightness-110 font-semibold px-6 py-3 shadow-lg transition-all duration-200">
 
                 <FolderOpen className="mr-2 h-4 w-4" />
                 View Projects
+              </Button> */}
+
+
+              <Button
+                onClick={scrollToProjects}
+                className="bg-accent text-accent-foreground
+                          hover:brightness-110 hover:-translate-y-1 hover:scale-105
+                          font-semibold px-6 py-3
+                          shadow-lg hover:shadow-xl
+                          transition-all duration-300"
+              >
+                <FolderOpen className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                View Projects
               </Button>
+
               <Button
                 onClick={scrollToContact}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6 py-3 shadow-lg transition-all duration-200 border-2 border-primary-foreground/20">
-                <Mail className="mr-2 h-4 w-4" />
+                className="bg-primary text-primary-foreground 
+                          hover:brightness-110 hover:-translate-y-1 hover:scale-105
+                          font-semibold px-6 py-3 
+                          shadow-lg hover:shadow-xl 
+                          transition-all duration-300 
+                          border-2 border-primary-foreground/20"
+              >
+                <Mail className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 Get In Touch
               </Button>
+            
+            
+            
             </div>
 
             {/* Social Links */}

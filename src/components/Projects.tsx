@@ -40,6 +40,7 @@ const projects = [
     status: "Completed",
     tags: ["OpenAI", "Career Guidance", "Agentic AI"],
     demoLink: "https://drive.google.com/file/d/1QthU4Fm3jYWYVSyg1tf2kebN9Ux0FT9_/view?usp=drive_link",
+    featured: true,
   },
   {
     title: "Captcha Solver",
@@ -54,6 +55,7 @@ const projects = [
     status: "Completed",
     tags: ["Agentic AI", "Bot", "Social Media"],
     demoLink: "https://drive.google.com/file/d/19nq1VQlAQB7dUfycvPyKUbBbdoBXqueK/view?usp=drive_link",
+    featured: true,
   },
   {
     title: "Beans & More Assistant",
