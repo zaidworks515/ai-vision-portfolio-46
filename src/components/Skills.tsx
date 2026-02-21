@@ -5,37 +5,31 @@ const skillCategories = [
   {
     title: "Core AI/ML",
     icon: "🧠",
-    color: "from-primary/20 to-primary/5",
     skills: ["Computer Vision", "Deep Learning", "Machine Learning", "NLP", "LLMs", "Neural Networks", "GenAI", "Agentic AI"],
   },
   {
     title: "Languages & Frameworks",
     icon: "⚙️",
-    color: "from-blue-500/20 to-blue-500/5",
     skills: ["Python", "TensorFlow", "PyTorch", "FastAPI", "Flask", "Django", "LangChain", "OpenAI SDK"],
   },
   {
     title: "Data & Engineering",
     icon: "📊",
-    color: "from-purple-500/20 to-purple-500/5",
     skills: ["Data Preprocessing", "Feature Engineering", "Data Annotation", "PostgreSQL", "MySQL", "Redis", "Apache Kafka"],
   },
   {
     title: "DevOps & Cloud",
     icon: "☁️",
-    color: "from-orange-500/20 to-orange-500/5",
     skills: ["Docker", "AWS", "Azure", "CI/CD", "REST APIs", "Backend Development", "Cloud Deployment"],
   },
   {
     title: "Specialized Domains",
     icon: "🔬",
-    color: "from-primary/20 to-primary/5",
     skills: ["OCR", "Text-to-Speech", "Pose Estimation", "3D Mesh Segmentation", "Web Scraping", "Automation"],
   },
   {
     title: "Professional",
     icon: "🤝",
-    color: "from-pink-500/20 to-pink-500/5",
     skills: ["Project Management", "Problem Solving", "Open-Source Contributor", "Attention to Detail", "Communication"],
   },
 ];
@@ -44,19 +38,21 @@ const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   return (
-    <section id="skills" className="py-24 px-4 md:px-8 relative circuit-pattern">
+    <section id="skills" className="py-20 px-4 md:px-8 section-blue">
       <div className="max-w-6xl mx-auto">
-        <SectionHeader label="// skills.tech_stack" title="Skills & Technologies" />
+        <SectionHeader title="Skills & Technologies" subtitle="Comprehensive expertise across AI/ML, data engineering, and cloud infrastructure." />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, catIdx) => (
             <div
               key={category.title}
-              className={`terminal-bg rounded-xl p-6 border border-border/50 hover:border-primary/30 glow-border-hover transition-all duration-300 animate-fade-in-up`}
-              style={{ animationDelay: `${catIdx * 100}ms` }}
+              className="bg-background rounded-2xl p-6 border border-border card-hover shadow-sm animate-fade-in-up"
+              style={{ animationDelay: `${catIdx * 80}ms` }}
             >
               <div className="flex items-center gap-3 mb-5">
-                <span className="text-2xl">{category.icon}</span>
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-xl">
+                  {category.icon}
+                </div>
                 <h3 className="font-bold text-foreground">{category.title}</h3>
               </div>
 
@@ -66,10 +62,10 @@ const Skills = () => {
                     key={skill}
                     onMouseEnter={() => setHoveredSkill(skill)}
                     onMouseLeave={() => setHoveredSkill(null)}
-                    className={`px-3 py-1 rounded-full text-xs font-mono border transition-all duration-200 cursor-default ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all duration-200 cursor-default ${
                       hoveredSkill === skill
-                        ? "border-primary bg-primary/15 text-primary shadow-[0_0_10px_hsl(174_100%_50%/0.3)]"
-                        : "border-border/50 bg-secondary/30 text-muted-foreground hover:border-primary/40 hover:text-primary/80"
+                        ? "border-primary bg-primary text-primary-foreground shadow-md"
+                        : "border-border bg-secondary/50 text-muted-foreground hover:border-primary/40 hover:text-primary"
                     }`}
                   >
                     {skill}
@@ -80,23 +76,22 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* Publications */}
-        <div className="mt-12 terminal-bg rounded-xl p-6 border border-primary/20 glow-border animate-fade-in-up">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="text-primary font-mono text-sm">📦</span>
+        {/* Open Source */}
+        <div className="mt-10 bg-background rounded-2xl p-6 border border-primary/20 shadow-sm animate-fade-in-up text-center">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="text-xl">📦</span>
             <h3 className="font-bold text-foreground">Open Source Contributions</h3>
           </div>
-          <p className="text-muted-foreground text-sm mb-3">
+          <p className="text-muted-foreground text-sm mb-4 font-body">
             Published open-source datasets on Kaggle – leading the gathering, labeling, analysis & model training process.
           </p>
           <a
             href="https://www.kaggle.com/datasets/zaidworks0508"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-mono text-primary hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
           >
-            <span>kaggle.com/datasets/zaidworks0508</span>
-            <span>↗</span>
+            kaggle.com/datasets/zaidworks0508 ↗
           </a>
         </div>
       </div>
