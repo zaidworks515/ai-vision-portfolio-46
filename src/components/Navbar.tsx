@@ -78,13 +78,6 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* CTA button desktop */}
-          <a
-            href="mailto:zaid_works515@outlook.com"
-            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent text-accent-foreground font-semibold text-sm hover:brightness-110 transition-all duration-200 shadow-sm"
-          >
-            Hire Me
-          </a>
 
           {/* Mobile toggle */}
           <button
@@ -120,12 +113,6 @@ const Navbar = () => {
                 </button>
               );
             })}
-            <a
-              href="mailto:zaid_works515@outlook.com"
-              className="flex items-center justify-center gap-2 w-full mt-3 px-4 py-3 rounded-lg bg-accent text-accent-foreground font-semibold text-sm"
-            >
-              Hire Me
-            </a>
           </div>
         </div>
       )}

@@ -89,7 +89,7 @@ const Contact = () => {
                 { href: "https://github.com/zaidworks515", icon: Github, label: "GitHub", sub: "@zaidworks515" },
                 { href: "https://linkedin.com/in/zaidworks515", icon: Linkedin, label: "LinkedIn", sub: "/in/zaidworks515" },
                 { href: "https://www.kaggle.com/zaidworks0508", label: "Kaggle", sub: "zaidworks0508", kaggle: true },
-                { href: "https://zaidportfolio.lovable.app", icon: ExternalLink, label: "Portfolio", sub: "zaidportfolio.lovable.app" },
+                { href: "/Resume-Zaid_Ahmed.pdf", icon: ExternalLink, label: "Resume", sub: "Download CV" },
               ].map((social) => (
                 <a
                   key={social.label}

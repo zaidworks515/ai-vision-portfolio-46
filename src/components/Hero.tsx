@@ -79,7 +79,7 @@ const Hero = () => {
             </div>
 
             <p className="text-primary-foreground/80 mb-8 max-w-lg leading-relaxed animate-fade-in-up animate-delay-300 text-base md:text-lg font-body">
-              AI/ML Engineer specializing in <span className="text-accent font-semibold">Computer Vision</span>, <span className="text-accent font-semibold">Deep Learning</span>, and <span className="text-accent font-semibold">Agentic AI</span>. Building scalable, production-ready AI solutions.
+              AI/ML Engineer / Python Developer focused on designing and deploying scalable AI systems across <span className="text-accent font-semibold">LLMs</span>, <span className="text-accent font-semibold">Computer Vision</span>, <span className="text-accent font-semibold">Deep Learning</span>, and <span className="text-accent font-semibold">Agentic AI</span> while translating advanced research into production-ready solutions.
             </p>
 
             {/* Stats row */}
@@ -107,10 +107,8 @@ const Hero = () => {
               </Button>
               <Button
                 onClick={scrollToContact}
-                variant="outline"
-                className="border-primary-foreground/30 text-primary-foreground font-semibold px-6 py-3 transition-all duration-200 bg-lime-700 hover:bg-lime-600">
-
-                <Mail className="mr-2 h-4 w-4 text-primary" />
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-6 py-3 shadow-lg transition-all duration-200 border-2 border-primary-foreground/20">
+                <Mail className="mr-2 h-4 w-4" />
                 Get In Touch
               </Button>
             </div>
