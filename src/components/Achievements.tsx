@@ -12,7 +12,7 @@ const achievements = [
   },
   {
     title: "Devathon SUMIT 1.0 – Laptop Winner",
-    description: "Won the Laptop prize in the 'AI & Data Science' category at Devathon SUNIT 1.0 hackathon.",
+    description: "Won the Laptop prize in the 'AI & Data Science' category at Devathon SUMIT 1.0 hackathon.",
     icon: Laptop,
     year: "2023",
     accent: "bg-primary/10 border-primary/30",
