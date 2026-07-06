@@ -1,37 +1,62 @@
 import { SectionHeader } from "./About";
 import { useState } from "react";
+import { Award, Languages } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Core AI/ML",
+    title: "AI Expertise",
     icon: "🧠",
-    skills: ["Computer Vision", "Deep Learning", "Machine Learning", "NLP", "LLMs", "Neural Networks", "GenAI", "Agentic AI"],
+    skills: [
+      "Python",
+      "Generative AI (GenAI)",
+      "Agentic AI",
+      "RAG",
+      "Computer Vision",
+      "OCR",
+      "Text To Speech",
+      "TensorFlow",
+      "PyTorch",
+      "Feature Engineering",
+      "Data Pre-processing",
+      "Data Annotation",
+      "Image Analysis",
+      "Video Analysis",
+      "Voice Analysis",
+    ],
   },
   {
-    title: "Languages & Frameworks",
+    title: "Engineering & Infrastructure",
     icon: "⚙️",
-    skills: ["Python", "TensorFlow", "PyTorch", "FastAPI", "Flask", "Django", "LangChain", "OpenAI SDK"],
+    skills: [
+      "FastAPI",
+      "Django",
+      "Flask",
+      "NVIDIA Triton",
+      "Roboflow",
+      "CI/CD",
+      "Claude Code / API",
+      "OpenAI API",
+      "Docker",
+      "Kafka",
+      "Redis",
+    ],
   },
   {
-    title: "Data & Engineering",
-    icon: "📊",
-    skills: ["Data Preprocessing", "Feature Engineering", "Data Annotation", "PostgreSQL", "MySQL", "Redis", "Apache Kafka"],
-  },
-  {
-    title: "DevOps & Cloud",
+    title: "Cloud Platforms & Tools",
     icon: "☁️",
-    skills: ["Docker", "AWS", "Azure", "CI/CD", "REST APIs", "Backend Development", "Cloud Deployment"],
+    skills: ["AWS", "Azure", "GCP", "Vast.ai", "RunPod"],
   },
-  {
-    title: "Specialized Domains",
-    icon: "🔬",
-    skills: ["OCR", "Text-to-Speech", "Pose Estimation", "3D Mesh Segmentation", "Web Scraping", "Automation"],
-  },
-  {
-    title: "Professional",
-    icon: "🤝",
-    skills: ["Project Management", "Problem Solving", "Open-Source Contributor", "Attention to Detail", "Communication"],
-  },
+];
+
+const certifications = [
+  { title: "AI and Data Science", issuer: "SMIT" },
+  { title: "Building With Claude API", issuer: "Anthropic" },
+  { title: "Introduction To Model Context Protocol", issuer: "Anthropic" },
+];
+
+const languages = [
+  { name: "English", level: "Proficient" },
+  { name: "Urdu", level: "Native" },
 ];
 
 const Skills = () => {
@@ -40,7 +65,10 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 px-4 md:px-8 section-blue">
       <div className="max-w-6xl mx-auto">
-        <SectionHeader title="Skills & Technologies" subtitle="Comprehensive expertise across AI/ML, data engineering, and cloud infrastructure." />
+        <SectionHeader
+          title="Skills & Technologies"
+          subtitle="Comprehensive expertise across AI/ML, engineering infrastructure, and cloud platforms."
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, catIdx) => (
@@ -76,8 +104,51 @@ const Skills = () => {
           ))}
         </div>
 
+        {/* Certifications & Languages */}
+        <div className="grid md:grid-cols-2 gap-6 mt-6">
+          <div className="bg-background rounded-2xl p-6 border border-border shadow-sm animate-fade-in-up">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center">
+                <Award className="h-5 w-5 text-accent" />
+              </div>
+              <h3 className="font-bold text-foreground">Certifications</h3>
+            </div>
+            <ul className="space-y-3">
+              {certifications.map((cert) => (
+                <li key={cert.title} className="flex gap-3">
+                  <span className="text-accent mt-0.5 font-bold shrink-0">▸</span>
+                  <div>
+                    <div className="text-sm font-semibold text-foreground">{cert.title}</div>
+                    <div className="text-xs text-muted-foreground">{cert.issuer}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="bg-background rounded-2xl p-6 border border-border shadow-sm animate-fade-in-up animate-delay-100">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                <Languages className="h-5 w-5 text-primary" />
+              </div>
+              <h3 className="font-bold text-foreground">Languages</h3>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              {languages.map((lang) => (
+                <div
+                  key={lang.name}
+                  className="p-4 rounded-xl border border-border bg-secondary/40 text-center"
+                >
+                  <div className="text-sm font-semibold text-foreground">{lang.name}</div>
+                  <div className="text-xs text-primary font-medium mt-1">{lang.level}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Open Source */}
-        <div className="mt-10 bg-background rounded-2xl p-6 border border-primary/20 shadow-sm animate-fade-in-up text-center">
+        <div className="mt-6 bg-background rounded-2xl p-6 border border-primary/20 shadow-sm animate-fade-in-up text-center">
           <div className="flex items-center justify-center gap-2 mb-3">
             <span className="text-xl">📦</span>
             <h3 className="font-bold text-foreground">Open Source Contributions</h3>
