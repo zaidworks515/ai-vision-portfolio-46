@@ -39,6 +39,8 @@ const skillCategories = [
       "Docker",
       "Kafka",
       "Redis",
+      "PostgreSQL",
+      "MySQL",
     ],
   },
   {
