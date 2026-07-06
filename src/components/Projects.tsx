@@ -3,6 +3,14 @@ import { SectionHeader } from "./About";
 
 const projects = [
   {
+    title: "Live Stream Analysis & Tracking",
+    description: "Real-time multimodal video understanding and object tracking pipeline leveraging vision-language models served through NVIDIA Triton for high-throughput inference.",
+    status: "Completed",
+    tags: ["MultiModal", "NVIDIA Triton", "Gemma 4", "Computer Vision", "VLM"],
+    demoLink: "https://drive.google.com/file/d/1ZQWRrHdeXsr0_VfQRZ8gumrr7_mMrAS_/view?usp=drive_link",
+    featured: true,
+  },
+  {
     title: "Voice Intelligence Platform",
     description: "Next-generation AI voice intelligence platform redefining automated customer engagement.",
     status: "Completed",
