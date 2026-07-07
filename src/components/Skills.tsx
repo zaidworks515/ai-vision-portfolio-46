@@ -22,6 +22,12 @@ const skillCategories = [
       "Image Analysis",
       "Video Analysis",
       "Voice Analysis",
+      "Vector Databases",
+      "Scikit-learn",
+      "Fine-tuning Models",
+      "Model Deployment",
+      "LangChain",
+      "LangGraph",
     ],
   },
   {
