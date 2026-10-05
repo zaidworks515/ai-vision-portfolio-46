@@ -83,7 +83,7 @@ export function VideoEmbed({ project }: { project: Project }) {
                 }}
                 className={cn(
                   "rounded-full border px-3 py-1.5 text-[0.78rem] transition-colors",
-                  i === active ? "border-fg bg-fg text-ink" : "border-line text-muted hover:text-fg",
+                  i === active ? "border-fg bg-fg text-ink" : "hl border-line text-muted",
                 )}
               >
                 {v.label}
@@ -98,7 +98,7 @@ export function VideoEmbed({ project }: { project: Project }) {
           href={drive.view(video.driveId)}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1 font-mono text-[0.7rem] text-muted transition-colors hover:text-fg"
+          className="inline-flex items-center gap-1 hl-text font-mono text-[0.7rem] text-muted"
         >
           Open in Google Drive <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
         </a>

@@ -80,7 +80,7 @@ export default function CaseStudy({ project }: { project: Project }) {
             <button
               type="button"
               onClick={close}
-              className="inline-flex h-9 items-center gap-2 rounded-full border border-line px-3 text-[0.82rem] text-muted transition-colors hover:border-fg/40 hover:text-fg"
+              className="inline-flex h-9 items-center gap-2 hl rounded-full border border-line px-3 text-[0.82rem] text-muted"
             >
               <ArrowLeft className="h-4 w-4" aria-hidden /> <span className="max-sm:sr-only">All work</span>
             </button>
@@ -88,13 +88,13 @@ export default function CaseStudy({ project }: { project: Project }) {
               {project.title}
             </p>
             <div className="flex items-center gap-1.5">
-              <button type="button" onClick={() => go(prev)} className="hidden h-9 w-9 items-center justify-center rounded-full border border-line text-muted hover:text-fg sm:inline-flex" aria-label={`Previous: ${prev.title}`}>
+              <button type="button" onClick={() => go(prev)} className="hidden h-9 w-9 items-center justify-center hl rounded-full border border-line text-muted sm:inline-flex" aria-label={`Previous: ${prev.title}`}>
                 <ArrowLeft className="h-4 w-4" aria-hidden />
               </button>
-              <button type="button" onClick={() => go(next)} className="hidden h-9 w-9 items-center justify-center rounded-full border border-line text-muted hover:text-fg sm:inline-flex" aria-label={`Next: ${next.title}`}>
+              <button type="button" onClick={() => go(next)} className="hidden h-9 w-9 items-center justify-center hl rounded-full border border-line text-muted sm:inline-flex" aria-label={`Next: ${next.title}`}>
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </button>
-              <button type="button" onClick={close} className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-fg text-ink" aria-label="Close case study">
+              <button type="button" onClick={close} className="hl-invert inline-flex h-9 w-9 items-center justify-center rounded-full bg-fg text-ink" aria-label="Close case study">
                 <X className="h-4 w-4" aria-hidden />
               </button>
             </div>
@@ -239,7 +239,7 @@ export default function CaseStudy({ project }: { project: Project }) {
             replace
             state={location.state}
             preventScrollReset
-            className="group mt-12 flex items-center justify-between gap-6 rounded-[1.5rem] border border-line/80 bg-surface/60 p-6 transition-colors hover:border-fg/30 sm:p-10"
+            className="group mt-12 flex items-center justify-between gap-6 rounded-[1.5rem] hl border border-line/80 bg-surface/60 p-6 sm:p-10"
           >
             <span className="min-w-0">
               <span className="eyebrow">Next case study</span>
@@ -283,7 +283,7 @@ function ExtLink({ href, children, icon }: { href: string; children: ReactNode; 
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex h-9 items-center gap-1.5 rounded-full border border-line px-3.5 text-[0.82rem] text-muted transition-colors hover:border-fg/40 hover:text-fg"
+      className="inline-flex h-9 items-center gap-1.5 hl rounded-full border border-line px-3.5 text-[0.82rem] text-muted"
     >
       {icon}
       {children}

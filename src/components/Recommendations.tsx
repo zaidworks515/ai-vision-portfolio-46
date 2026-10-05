@@ -64,7 +64,7 @@ function Card({ rec }: { rec: Recommendation }) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={`rec-full-${rec.id}`}
-        className="mt-5 inline-flex items-center gap-1.5 self-start text-[0.82rem] font-medium text-accent hover:underline"
+        className="mt-5 inline-flex items-center gap-1.5 hl-text self-start text-[0.82rem] font-medium text-accent"
       >
         {open ? "Hide full recommendation" : "Read full recommendation"}
         <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`} aria-hidden />
@@ -91,7 +91,7 @@ function Card({ rec }: { rec: Recommendation }) {
             href={rec.profileUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-[0.82rem] text-muted transition-colors hover:text-fg"
+            className="inline-flex items-center gap-1.5 hl-text text-[0.82rem] text-muted"
             aria-label={`${rec.name} on LinkedIn`}
           >
             <Linkedin className="h-3.5 w-3.5" aria-hidden /> Profile <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
@@ -100,7 +100,7 @@ function Card({ rec }: { rec: Recommendation }) {
             href={RECOMMENDATIONS_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 text-[0.82rem] text-muted transition-colors hover:text-fg"
+            className="inline-flex items-center gap-1.5 hl-text text-[0.82rem] text-muted"
             aria-label={`Verify ${rec.name}'s recommendation on LinkedIn`}
           >
             <BadgeCheck className="h-3.5 w-3.5" aria-hidden /> Verify on LinkedIn <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
@@ -146,7 +146,7 @@ export function Recommendations() {
             href={RECOMMENDATIONS_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex h-10 items-center gap-2 rounded-full border border-line px-4 text-[0.85rem] text-fg transition-colors hover:border-fg/40"
+            className="group inline-flex h-10 items-center gap-2 hl rounded-full border border-line px-4 text-[0.85rem] text-fg"
           >
             <Linkedin className="h-4 w-4" aria-hidden /> Read all on LinkedIn
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" aria-hidden />

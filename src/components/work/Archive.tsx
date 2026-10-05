@@ -67,7 +67,7 @@ export function Archive({ filter }: { filter: CapabilityId | null }) {
                         href={link.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 font-mono text-[0.72rem] text-muted transition-colors hover:text-fg"
+                        className="inline-flex items-center gap-1 hl-text font-mono text-[0.72rem] text-muted"
                         aria-label={`${item.title}: ${link.label}`}
                       >
                         {link.label} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
@@ -86,7 +86,7 @@ export function Archive({ filter }: { filter: CapabilityId | null }) {
           type="button"
           onClick={() => setExpanded((v) => !v)}
           aria-expanded={expanded}
-          className="mt-6 inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-[0.85rem] text-muted transition-colors hover:border-fg/40 hover:text-fg"
+          className="mt-6 inline-flex items-center gap-2 hl rounded-full border border-line px-4 py-2 text-[0.85rem] text-muted"
         >
           <Plus className={cn("h-4 w-4 transition-transform duration-300", expanded && "rotate-45")} aria-hidden />
           {expanded ? "Show fewer" : `Show all ${archive.length}`}

@@ -98,10 +98,10 @@ export function SignalRouter() {
                 onKeyDown={(e) => onTabKey(e, i)}
                 className={cn(
                   "relative flex flex-col items-center gap-1.5 overflow-hidden rounded-xl px-1 py-2.5 text-[0.72rem] font-medium transition-colors duration-300 sm:flex-row sm:justify-center sm:gap-2 sm:text-[0.8rem]",
-                  selected ? "bg-raised text-fg" : "text-muted hover:bg-raised/50 hover:text-fg",
+                  selected ? "bg-raised text-fg" : "hl group text-muted",
                 )}
               >
-                <Icon className={cn("h-4 w-4 transition-colors", selected ? "text-accent" : "text-dim")} aria-hidden />
+                <Icon className={cn("h-4 w-4 transition-colors", selected ? "text-accent" : "text-dim group-hover:text-accent-hover")} aria-hidden />
                 {r.label}
                 {selected && autoplay && (
                   <span

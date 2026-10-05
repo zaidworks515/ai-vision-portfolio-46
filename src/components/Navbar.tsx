@@ -75,7 +75,7 @@ export function Navbar({ hidden = false }: { hidden?: boolean }) {
                       aria-current={isActive ? "true" : undefined}
                       className={cn(
                         "relative block rounded-full px-3.5 py-2 text-[0.84rem] transition-colors duration-300",
-                        isActive ? "text-fg" : "text-muted hover:text-fg",
+                        isActive ? "text-fg" : "hl text-muted",
                       )}
                     >
                       {isActive && (
@@ -98,14 +98,14 @@ export function Navbar({ hidden = false }: { hidden?: boolean }) {
                 href="#contact"
                 className={cn(
                   "hidden h-10 items-center gap-1.5 rounded-full px-4 text-[0.84rem] font-medium transition-colors sm:inline-flex",
-                  active === "contact" ? "bg-fg text-ink" : "bg-accent text-ink hover:bg-accent-hover",
+                  active === "contact" ? "bg-fg text-ink" : "hl-solid bg-accent text-ink",
                 )}
               >
                 Get in touch
               </a>
               <button
                 type="button"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-raised/60 text-fg lg:hidden"
+                className="hl inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-raised/60 text-fg lg:hidden"
                 aria-label="Open menu"
                 aria-expanded={open}
                 aria-controls="mobile-menu"
@@ -141,7 +141,7 @@ export function Navbar({ hidden = false }: { hidden?: boolean }) {
               <button
                 type="button"
                 data-autofocus
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-raised/60"
+                className="hl inline-flex h-10 w-10 items-center justify-center rounded-full border border-line bg-raised/60"
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
               >
@@ -162,9 +162,9 @@ export function Navbar({ hidden = false }: { hidden?: boolean }) {
                     href={`#${item.id}`}
                     onClick={() => setOpen(false)}
                     aria-current={active === item.id ? "true" : undefined}
-                    className="flex items-baseline justify-between py-4 text-[1.9rem] font-medium tracking-tight"
+                    className="group flex items-baseline justify-between py-4 text-[1.9rem] font-medium tracking-tight"
                   >
-                    <span className={active === item.id ? "text-accent" : "text-fg"}>{item.label}</span>
+                    <span className={cn("transition-colors", active === item.id ? "text-accent" : "text-fg group-hover:text-accent-hover")}>{item.label}</span>
                     <span className="font-mono text-xs text-dim">0{i + 1}</span>
                   </a>
                 </motion.li>
@@ -182,13 +182,13 @@ export function Navbar({ hidden = false }: { hidden?: boolean }) {
                   href={s.href}
                   target={s.id === "email" ? undefined : "_blank"}
                   rel="noreferrer"
-                  className="chip h-10 px-3.5 text-[0.75rem]"
+                  className="chip hl h-10 px-3.5 text-[0.75rem]"
                 >
                   <SocialIcon id={s.id} className="h-3.5 w-3.5" />
                   {s.label}
                 </a>
               ))}
-              <a href={profile.resume.href} target="_blank" rel="noreferrer" className="chip h-10 px-3.5 text-[0.75rem]">
+              <a href={profile.resume.href} target="_blank" rel="noreferrer" className="chip hl h-10 px-3.5 text-[0.75rem]">
                 Resume <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
               </a>
             </div>

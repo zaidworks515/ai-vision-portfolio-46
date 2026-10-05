@@ -135,7 +135,7 @@ export function About() {
             <ul className="mt-4 space-y-1.5">
               {datasets.map((d) => (
                 <li key={d.name}>
-                  <a href={d.href} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-1.5 text-[0.88rem] text-fg">
+                  <a href={d.href} target="_blank" rel="noreferrer" className="hl-text group inline-flex items-center gap-1.5 text-[0.88rem] text-fg">
                     <span className="link-underline">{d.name}</span>
                     <ArrowUpRight className="h-3.5 w-3.5 text-muted transition-transform group-hover:rotate-45" aria-hidden />
                   </a>

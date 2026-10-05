@@ -48,7 +48,7 @@ export function Contact() {
               <button
                 type="button"
                 onClick={copy}
-                className="inline-flex h-10 items-center gap-2 rounded-full border border-line px-3.5 text-[0.8rem] text-muted transition-colors hover:border-fg/40 hover:text-fg"
+                className="inline-flex h-10 items-center gap-2 hl rounded-full border border-line px-3.5 text-[0.8rem] text-muted"
                 aria-label="Copy email address"
               >
                 {copied ? <Check className="h-4 w-4 text-live" aria-hidden /> : <Copy className="h-4 w-4" aria-hidden />}
@@ -73,7 +73,7 @@ export function Contact() {
                 href={s.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center justify-between rounded-2xl border border-line/80 bg-surface/50 px-5 py-4 transition-colors hover:border-fg/60 hover:bg-surface/80"
+                className="group flex items-center justify-between rounded-2xl hl border border-line/80 bg-surface/50 px-5 py-4"
               >
                 <span className="flex items-center gap-3">
                   <SocialIcon id={s.id} className="h-[18px] w-[18px] text-muted transition-colors group-hover:text-fg" />
@@ -86,7 +86,7 @@ export function Contact() {
               </a>
             ))}
           <div className="flex flex-col justify-center gap-1.5 rounded-2xl border border-line/80 bg-surface/50 px-5 py-4">
-            <a href={profile.phoneHref} className="flex items-center gap-2.5 text-[0.9rem] text-fg">
+            <a href={profile.phoneHref} className="hl-text flex items-center gap-2.5 text-[0.9rem] text-fg">
               <Phone className="h-4 w-4 text-muted" aria-hidden /> {profile.phone}
             </a>
             <p className="flex items-center gap-2.5 text-[0.9rem] text-muted">
@@ -99,7 +99,7 @@ export function Contact() {
           <div className="flex items-center gap-3">
             <Monogram className="h-7 w-7" />
           </div>
-          <a href="#top" className="inline-flex items-center gap-2 self-start text-muted transition-colors hover:text-fg sm:self-auto">
+          <a href="#top" className="inline-flex items-center gap-2 hl-text self-start text-muted sm:self-auto">
             Back to top <ArrowUp className="h-4 w-4" aria-hidden />
           </a>
         </footer>

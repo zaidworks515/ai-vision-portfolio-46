@@ -1,12 +1,39 @@
 import { useMemo, useState, type KeyboardEvent } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Lock, MapPin } from "lucide-react";
-import { roles } from "@/data/experience";
-import { projectBySlug } from "@/data/projects";
+import { Lock, MapPin } from "lucide-react";
+import { roles, type Highlight } from "@/data/experience";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "./ui/SectionHeading";
 import { Reveal, EASE } from "./ui/Reveal";
+
+/** "Name: what I did", where the name links to its case study when there is one. */
+function NamedHighlight({ name, text, slug, confidential }: Exclude<Highlight, string>) {
+  return (
+    <>
+      {slug ? (
+        <Link
+          to={`/work/${slug}`}
+          state={{ fromHome: true }}
+          preventScrollReset
+          title={`Open the ${name} case study`}
+          className="hl-text font-medium text-fg underline decoration-accent/40 decoration-1 underline-offset-4"
+        >
+          {name}
+        </Link>
+      ) : (
+        <span className="font-medium text-fg">{name}</span>
+      )}
+      {": "}
+      {text}
+      {confidential && (
+        <span className="chip ml-2 align-[0.1em]">
+          <Lock className="h-3 w-3" aria-hidden /> Confidential
+        </span>
+      )}
+    </>
+  );
+}
 
 const toMonths = (ym: string) => {
   const [y, m] = ym.split("-").map(Number);
@@ -89,11 +116,11 @@ export function Experience() {
                     onKeyDown={(e) => onKey(e, i)}
                     className={cn(
                       "group grid w-full items-center gap-x-4 gap-y-1.5 rounded-xl px-2 py-2 text-left transition-colors sm:grid-cols-[12.5rem_1fr]",
-                      selected ? "bg-raised/70" : "hover:bg-raised/40",
+                      selected ? "bg-raised/70" : "hl",
                     )}
                   >
                     <span className="min-w-0">
-                      <span className={cn("block truncate text-[0.9rem]", selected ? "text-fg" : "text-muted")}>{r.company}</span>
+                      <span className={cn("block truncate text-[0.9rem]", selected ? "text-fg" : "text-muted transition-colors group-hover:text-accent-hover")}>{r.company}</span>
                       <span className="block font-mono text-[0.64rem] text-dim">{r.period}</span>
                     </span>
                     <span className="relative block h-3 w-full rounded-full bg-raised">
@@ -104,7 +131,7 @@ export function Experience() {
                       <span
                         className={cn(
                           "absolute inset-y-0 rounded-full transition-colors duration-300",
-                          selected ? "bg-accent" : "bg-fg/25 group-hover:bg-fg/40",
+                          selected ? "bg-accent" : "bg-fg/25 group-hover:bg-accent/60",
                         )}
                         style={{ left: `${left}%`, width: `${Math.min(width, 100 - left)}%` }}
                       />
@@ -127,8 +154,9 @@ export function Experience() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.4, ease: EASE }}
-              className="card grid gap-8 p-5 sm:p-8 lg:grid-cols-[1.4fr_1fr] lg:gap-12"
+              className="card grid gap-8 p-5 sm:p-8 lg:grid-cols-[1fr_1.3fr] lg:gap-12"
             >
+              {/* who and when, plus the tools used */}
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   {role.current && (
@@ -147,69 +175,27 @@ export function Experience() {
                   {role.companyNote && <span className="text-dim"> · {role.companyNote}</span>}
                 </p>
                 <p className="mt-4 text-[0.92rem] italic text-dim">{role.context}</p>
-                <ul className="mt-6 space-y-3">
-                  {role.highlights.map((h) => (
-                    <li key={h} className="grid grid-cols-[1rem_1fr] gap-2 text-[0.95rem] leading-relaxed text-muted">
-                      <span aria-hidden className="mt-[0.7rem] h-px w-3 bg-accent" />
-                      <span className="text-pretty">{h}</span>
-                    </li>
+                <p className="eyebrow mb-3 mt-8">Stack</p>
+                <ul className="flex flex-wrap gap-1.5">
+                  {role.stack.map((s) => (
+                    <li key={s} className="chip text-fg/85">{s}</li>
                   ))}
                 </ul>
               </div>
 
-              <div className="space-y-8 lg:border-l lg:border-line/80 lg:pl-10">
-                <div>
-                  <p className="eyebrow mb-3">Stack</p>
-                  <ul className="flex flex-wrap gap-1.5">
-                    {role.stack.map((s) => (
-                      <li key={s} className="chip text-fg/85">{s}</li>
-                    ))}
-                  </ul>
-                </div>
-                {role.projects?.length || role.otherSystems?.length ? (
-                  <div>
-                    <p className="eyebrow mb-3">Systems from this role</p>
-                    <ul className="space-y-2">
-                      {(role.projects ?? []).map((slug) => {
-                        const p = projectBySlug(slug);
-                        if (!p) return null;
-                        return (
-                          <li key={slug}>
-                            <Link
-                              to={`/work/${slug}`}
-                              state={{ fromHome: true }}
-                              preventScrollReset
-                              className="group flex items-center justify-between gap-3 rounded-xl border border-line/80 px-4 py-3 transition-colors hover:border-fg/30"
-                            >
-                              <span>
-                                <span className="block text-[0.95rem] text-fg">{p.title}</span>
-                                <span className="block font-mono text-[0.66rem] text-dim">{p.kind}</span>
-                              </span>
-                              <ArrowUpRight className="h-4 w-4 text-muted transition-transform duration-300 group-hover:rotate-45" aria-hidden />
-                            </Link>
-                          </li>
-                        );
-                      })}
-                      {role.otherSystems?.map((sys) => (
-                        <li
-                          key={sys.title}
-                          className="flex items-center justify-between gap-3 rounded-xl border border-dashed border-line/90 px-4 py-3"
-                        >
-                          <span className="min-w-0">
-                            <span className="block text-[0.95rem] text-fg">{sys.title}</span>
-                            <span className="block font-mono text-[0.66rem] text-dim">{sys.kind}</span>
-                            {sys.detail && <span className="mt-1 block text-[0.82rem] leading-snug text-muted">{sys.detail}</span>}
-                          </span>
-                          {sys.confidential && (
-                            <span className="chip shrink-0">
-                              <Lock className="h-3 w-3" aria-hidden /> Confidential
-                            </span>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : null}
+              {/* what the role delivered */}
+              <div className="lg:border-l lg:border-line/80 lg:pl-10">
+                <p className="eyebrow mb-4">Highlights</p>
+                <ul className="space-y-3.5">
+                  {role.highlights.map((h) => (
+                    <li key={typeof h === "string" ? h : h.name} className="grid grid-cols-[1rem_1fr] gap-2 text-[0.95rem] leading-relaxed text-muted">
+                      <span aria-hidden className="mt-[0.7rem] h-px w-3 bg-accent" />
+                      <span className="text-pretty">
+                        {typeof h === "string" ? h : <NamedHighlight {...h} />}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.article>
           </AnimatePresence>
