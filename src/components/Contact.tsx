@@ -22,7 +22,6 @@ export function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-title" className="theme-blue relative isolate overflow-hidden pb-10 pt-24 md:pt-36">
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-[34rem] bg-[radial-gradient(60%_80%_at_50%_100%,hsl(var(--accent)/0.16),transparent_70%)]" />
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-40 [mask-image:linear-gradient(to_top,#000,transparent_70%)]" />
 
       <div className="container">
         <Reveal>

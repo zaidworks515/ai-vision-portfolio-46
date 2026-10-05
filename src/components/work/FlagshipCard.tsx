@@ -25,7 +25,6 @@ export function FlagshipCard({ project, dimmed }: { project: Project; dimmed?: b
       }}
       onPointerLeave={() => setHovered(false)}
     >
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-30 [background-size:40px_40px] mask-radial" />
       <div className="relative grid items-center gap-10 p-5 sm:p-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-14 lg:p-12">
         <div className="flex flex-col">
           <div className="flex flex-wrap items-center gap-2">

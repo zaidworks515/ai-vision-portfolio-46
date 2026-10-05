@@ -66,9 +66,6 @@ export function ProjectMedia({ poster, clip, clipSm, hovered = false, sizes = "(
 
   return (
     <div ref={wrapRef} className={cn("relative h-full w-full overflow-hidden bg-ink", className)}>
-      {contain && (
-        <div aria-hidden className="absolute inset-0 bg-grid opacity-40 [background-size:28px_28px]" />
-      )}
       <img
         src={poster.src}
         srcSet={`${poster.srcSm} ${Math.round(w / 2)}w, ${poster.src} ${w}w`}

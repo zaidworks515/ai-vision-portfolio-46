@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-    <title>Zaid Ahmed | AI/ML Engineer · Computer Vision, Speech & Language Models</title>
+    <title>Zaid Portfolio | Zaid Ahmed, AI/ML Engineer · Computer Vision, Speech & LLMs</title>
     <meta
       name="description"
-      content="Zaid Ahmed is an AI/ML engineer in Karachi who builds computer vision, speech and language models, from data and training through fine-tuning to GPU serving with NVIDIA Triton, DeepStream, vLLM and TensorRT."
+      content="Zaid Portfolio: the work of Zaid Ahmed, an AI/ML engineer in Karachi. Computer vision, speech and language models, from training to GPU serving with NVIDIA Triton, DeepStream, vLLM and TensorRT."
     />
     <meta name="author" content="Zaid Ahmed" />
+    <meta name="application-name" content="Zaid Portfolio" />
+    <meta name="apple-mobile-web-app-title" content="Zaid Portfolio" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="color-scheme" content="light dark" />
     <script src="/theme-init.js"></script>
@@ -17,8 +19,8 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Zaid Ahmed" />
-    <meta property="og:title" content="Zaid Ahmed | AI/ML Engineer" />
+    <meta property="og:site_name" content="Zaid Portfolio" />
+    <meta property="og:title" content="Zaid Portfolio | Zaid Ahmed, AI/ML Engineer" />
     <meta
       property="og:description"
       content="I build computer vision, speech and language models, and serve them on GPUs. Case studies with demos and measured results."
@@ -31,7 +33,7 @@
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Zaid Ahmed | AI/ML Engineer" />
+    <meta name="twitter:title" content="Zaid Portfolio | Zaid Ahmed, AI/ML Engineer" />
     <meta
       name="twitter:description"
       content="I build computer vision, speech and language models, and serve them on GPUs."
@@ -57,23 +59,45 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Zaid Ahmed",
-        "jobTitle": "AI/ML Engineer",
-        "url": "https://zaidportfolio.lovable.app/",
-        "image": "https://zaidportfolio.lovable.app/media/zaid-ahmed.png",
-        "email": "mailto:zaid_works515@outlook.com",
-        "worksFor": { "@type": "Organization", "name": "Inseyab Consulting" },
-        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Sir Syed University of Engineering & Technology" },
-        "address": { "@type": "PostalAddress", "addressLocality": "Karachi", "addressCountry": "PK" },
-        "knowsAbout": [
-          "Computer Vision", "Speech AI", "Large Language Models", "Agentic AI", "OCR", "Retrieval-Augmented Generation",
-          "NVIDIA Triton Inference Server", "vLLM", "TensorRT", "FastAPI"
-        ],
-        "sameAs": [
-          "https://github.com/zaidworks515",
-          "https://www.linkedin.com/in/zaidworks515",
-          "https://www.kaggle.com/zaidworks0508"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://zaidportfolio.lovable.app/#website",
+            "name": "Zaid Portfolio",
+            "alternateName": ["zaidportfolio", "Zaid Ahmed Portfolio"],
+            "url": "https://zaidportfolio.lovable.app/",
+            "inLanguage": "en",
+            "author": { "@id": "https://zaidportfolio.lovable.app/#person" }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://zaidportfolio.lovable.app/#profile",
+            "name": "Zaid Portfolio | Zaid Ahmed, AI/ML Engineer",
+            "url": "https://zaidportfolio.lovable.app/",
+            "isPartOf": { "@id": "https://zaidportfolio.lovable.app/#website" },
+            "mainEntity": { "@id": "https://zaidportfolio.lovable.app/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://zaidportfolio.lovable.app/#person",
+            "name": "Zaid Ahmed",
+            "jobTitle": "AI/ML Engineer",
+            "url": "https://zaidportfolio.lovable.app/",
+            "image": "https://zaidportfolio.lovable.app/media/zaid-ahmed.png",
+            "email": "mailto:zaid_works515@outlook.com",
+            "worksFor": { "@type": "Organization", "name": "Inseyab Consulting" },
+            "alumniOf": { "@type": "CollegeOrUniversity", "name": "Sir Syed University of Engineering & Technology" },
+            "address": { "@type": "PostalAddress", "addressLocality": "Karachi", "addressCountry": "PK" },
+            "knowsAbout": [
+              "Computer Vision", "Speech AI", "Large Language Models", "Agentic AI", "OCR", "Retrieval-Augmented Generation",
+              "NVIDIA Triton Inference Server", "NVIDIA DeepStream", "vLLM", "TensorRT", "FastAPI"
+            ],
+            "sameAs": [
+              "https://github.com/zaidworks515",
+              "https://www.linkedin.com/in/zaidworks515",
+              "https://www.kaggle.com/zaidworks0508"
+            ]
+          }
         ]
       }
     </script>
@@ -81,7 +105,7 @@
   <body>
     <noscript>
       <div style="max-width: 40rem; margin: 4rem auto; padding: 0 1rem; font-family: system-ui, sans-serif; color: #1a2432">
-        <h1>Zaid Ahmed, AI/ML Engineer</h1>
+        <h1>Zaid Portfolio: Zaid Ahmed, AI/ML Engineer</h1>
         <p>Computer vision, voice and LLM systems, from data and models to the GPU inference layer. This site needs JavaScript for its interactive case studies.</p>
         <p><a style="color: #0063cc" href="/resume/Zaid-Ahmed-AI-ML-Engineer-Resume.pdf">Resume (PDF)</a> · <a style="color: #0063cc" href="mailto:zaid_works515@outlook.com">zaid_works515@outlook.com</a></p>
       </div>

@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 export type Theme = "light" | "dark";
 
 const STORAGE_KEY = "theme";
-const THEME_COLOR: Record<Theme, string> = { light: "#ffffff", dark: "#0a101a" };
+const THEME_COLOR: Record<Theme, string> = { light: "#ffffff", dark: "#171a21" };
 
 const current = (): Theme => (document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
 
@@ -16,32 +16,17 @@ function apply(theme: Theme) {
 }
 
 /**
- * Light/dark theme. `public/theme-init.js` sets the initial value before paint;
- * this hook keeps React in sync, persists the visitor's choice, and follows the
- * system setting until the visitor picks one.
+ * Light/dark theme. Bright mode is the default for every visitor;
+ * `public/theme-init.js` applies a saved choice before paint, and this hook
+ * keeps every toggle in sync and remembers the visitor's choice.
  */
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => (typeof document === "undefined" ? "light" : current()));
 
   useEffect(() => {
-    const mql = window.matchMedia("(prefers-color-scheme: dark)");
-    const onSystem = () => {
-      let saved: string | null = null;
-      try {
-        saved = localStorage.getItem(STORAGE_KEY);
-      } catch {
-        /* ignore */
-      }
-      if (saved === "light" || saved === "dark") return;
-      apply(mql.matches ? "dark" : "light");
-    };
     const onChange = () => setTheme(current());
-    mql.addEventListener("change", onSystem);
     window.addEventListener(EVENT, onChange);
-    return () => {
-      mql.removeEventListener("change", onSystem);
-      window.removeEventListener(EVENT, onChange);
-    };
+    return () => window.removeEventListener(EVENT, onChange);
   }, []);
 
   const toggle = useCallback(() => {

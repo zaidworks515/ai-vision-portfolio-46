@@ -65,7 +65,6 @@
     --gold: 42 68% 62%;
     --live: 152 40% 58%;
     --scroll-thumb: 220 10% 30%;
-    --grid-alpha: 0.04;
 
     --shadow-card: 0 1px 2px hsl(220 30% 4% / 0.35), 0 12px 30px -20px hsl(220 40% 3% / 0.6);
     --shadow-lift: 0 2px 4px hsl(220 30% 4% / 0.35), 0 22px 44px -24px hsl(220 40% 3% / 0.7);
@@ -229,13 +228,6 @@
 }
 
 @layer utilities {
-  /* Faint blueprint grid, masked so it fades out at the edges */
-  .bg-grid {
-    background-image:
-      linear-gradient(to right, hsl(var(--accent) / var(--grid-alpha, 0.07)) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--accent) / var(--grid-alpha, 0.07)) 1px, transparent 1px);
-    background-size: 56px 56px;
-  }
   .mask-radial {
     -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
     mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);

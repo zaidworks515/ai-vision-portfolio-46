@@ -181,6 +181,8 @@ public/
 
 - Semantic landmarks, a skip link, labelled tabs/dialogs and a focus-trapped case
   study (Esc closes and returns focus to the card that opened it).
+- Bright mode is the default for every visitor. The toggle switches to dark mode,
+  and the choice is remembered on that device.
 - `prefers-reduced-motion` disables autoplay, count-ups and transforms. The site
   works the same, just still.
 - Images are WebP with `srcset`; loops are created only on hover (or when in view

@@ -7,7 +7,7 @@ export default function NotFound() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    document.title = "Page not found | Zaid Ahmed";
+    document.title = "Page not found | Zaid Portfolio";
   }, []);
 
   return (

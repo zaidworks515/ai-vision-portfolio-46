@@ -40,7 +40,7 @@ export default function CaseStudy({ project }: { project: Project }) {
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: 0 });
     const prevTitle = document.title;
-    document.title = `${project.title} | Zaid Ahmed`;
+    document.title = `${project.title} | Zaid Portfolio`;
     return () => {
       document.title = prevTitle;
     };

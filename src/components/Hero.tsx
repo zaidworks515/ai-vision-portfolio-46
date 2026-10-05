@@ -26,7 +26,6 @@ function IdentityCard() {
   return (
     <div className="theme-blue relative isolate flex min-h-[10.5rem] items-center rounded-[1.5rem] py-5 pl-[12rem] pr-5 shadow-[0_24px_50px_-28px_hsl(213_100%_20%/0.6)] sm:min-h-[12.5rem] sm:pl-[15.5rem] sm:pr-6">
       <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden rounded-[1.5rem]">
-        <div className="absolute inset-0 bg-grid opacity-60 [background-size:28px_28px]" />
         <div className="absolute -bottom-16 left-6 h-56 w-56 rounded-full bg-[radial-gradient(closest-side,hsl(var(--gold)/0.35),transparent)]" />
       </div>
       {/* Shown at about its native 500 px on 2x screens, so it stays sharp. */}
@@ -59,7 +58,6 @@ export function Hero() {
   return (
     <section id="top" aria-labelledby="hero-title" className="relative isolate overflow-hidden pt-[calc(var(--nav-h)+2.5rem)] sm:pt-[calc(var(--nav-h)+3.5rem)]">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(180deg,hsl(var(--tint))_0%,hsl(var(--ink))_88%)]" />
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-grid mask-radial opacity-90" />
       <div aria-hidden className="pointer-events-none absolute -top-40 right-[-10%] -z-10 h-[38rem] w-[38rem] rounded-full bg-[radial-gradient(closest-side,hsl(var(--gold)/0.16),transparent)]" />
 
       <div className="container">

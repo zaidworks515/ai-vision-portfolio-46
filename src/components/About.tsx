@@ -31,7 +31,6 @@ export function About() {
           {/* Portrait + summary + resume */}
           <Reveal className="card relative overflow-hidden">
             <div className="relative h-[19rem] overflow-hidden border-b border-line/80 bg-[radial-gradient(120%_90%_at_50%_100%,hsl(var(--accent)/0.18),transparent_60%)] sm:h-[22rem]">
-              <div aria-hidden className="absolute inset-0 bg-grid opacity-50 [background-size:32px_32px] mask-radial" />
               <img
                 src={profile.photo}
                 alt={`Portrait of ${profile.name}`}
