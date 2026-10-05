@@ -1,7 +1,10 @@
 /**
- * Roles from the resume. `projects` only links work where the source material
- * ties the project to that employer explicitly.
+ * Roles from the resume. A highlight only names (and links) a system where the
+ * source material ties it to that employer explicitly.
  */
+
+/** Plain text, or a named system with an optional case study link. */
+export type Highlight = string | { name: string; text: string; slug?: string; confidential?: boolean };
 
 export type Role = {
   id: string;
@@ -14,11 +17,8 @@ export type Role = {
   current?: boolean;
   location: string;
   context: string;
-  highlights: string[];
+  highlights: Highlight[];
   stack: string[];
-  projects?: string[]; // project slugs
-  /** Systems without a case study page, e.g. confidential client work */
-  otherSystems?: { title: string; kind: string; detail?: string; confidential?: boolean }[];
 };
 
 export const roles: Role[] = [
@@ -33,21 +33,20 @@ export const roles: Role[] = [
     location: "NASTP, Karachi",
     context: "AI-focused firm building intelligent business solutions.",
     highlights: [
-      "Built the single-GPU Triton inference platform behind an OpenAI-compatible gateway.",
-      "Worked on the Voice Intelligence Platform for contact centres.",
+      {
+        name: "Triton Inference Platform",
+        slug: "triton-inference-platform",
+        text: "built the single-GPU platform behind an OpenAI-compatible gateway.",
+      },
+      { name: "Voice Intelligence Platform", slug: "voice-intelligence", text: "worked on speech analytics for contact centres." },
+      {
+        name: "Smart Warehouse",
+        text: "YOLO models on Triton count sacks live from the dispatch cameras and send counts by category to the client's Odoo. Four streams in under 2 GB of GPU memory.",
+      },
+      { name: "Muhafiz", text: "client project.", confidential: true },
       "FastAPI services, data pipelines and Docker deployments on AWS and Azure.",
     ],
     stack: ["NVIDIA Triton", "vLLM", "TensorRT", "FastAPI", "Kafka", "Docker", "PostgreSQL", "AWS", "Azure"],
-    projects: ["triton-inference-platform", "voice-intelligence"],
-    otherSystems: [
-      {
-        title: "Smart Warehouse",
-        kind: "Computer vision · Client project",
-        detail:
-          "Replaces counting sacks by hand at dispatch. YOLO models on the Triton platform count every sack live from the warehouse cameras and send counts by category into the client's Odoo system. Four live camera streams run in under 2 GB of GPU memory.",
-      },
-      { title: "Muhafiz", kind: "Client project", confidential: true },
-    ],
   },
   {
     id: "tesseract",

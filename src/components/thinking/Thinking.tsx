@@ -54,7 +54,7 @@ function Detail({ t }: { t: Transition }) {
           to={`/work/${project.slug}`}
           state={{ fromHome: true }}
           preventScrollReset
-          className="group inline-flex items-center gap-2 text-[0.88rem] text-muted transition-colors hover:text-fg"
+          className="group inline-flex items-center gap-2 hl-text text-[0.88rem] text-muted"
         >
           From <span className="text-fg">{project.title}</span>
           <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" aria-hidden />
@@ -111,7 +111,7 @@ export function Thinking() {
                       onClick={() => setActive(i)}
                       className={cn(
                         "group grid w-full grid-cols-[2rem_1fr_auto] items-center gap-3 py-5 text-left transition-colors duration-300",
-                        selected ? "text-fg" : "text-muted hover:text-fg",
+                        selected ? "text-fg" : "text-muted hover:text-accent-hover",
                       )}
                     >
                       <span className={cn("font-mono text-[0.7rem]", selected ? "text-accent" : "text-dim")}>{pad2(i + 1)}</span>
@@ -122,7 +122,7 @@ export function Thinking() {
                       </span>
                       <span
                         aria-hidden
-                        className={cn("h-1.5 w-1.5 rounded-full transition-colors", selected ? "bg-accent" : "bg-transparent group-hover:bg-line")}
+                        className={cn("h-1.5 w-1.5 rounded-full transition-colors", selected ? "bg-accent" : "bg-transparent group-hover:bg-accent/60")}
                       />
                     </button>
                     {!desktop && (

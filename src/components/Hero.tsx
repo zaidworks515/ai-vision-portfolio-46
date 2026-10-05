@@ -113,7 +113,7 @@ export function Hero() {
                     rel="noreferrer"
                     aria-label={s.id === "email" ? `Email ${s.handle}` : `${s.label}: ${s.handle}`}
                     title={s.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-line/80 text-muted transition-colors duration-300 hover:border-fg/40 hover:text-fg"
+                    className="flex h-10 w-10 items-center justify-center rounded-full hl border border-line/80 text-muted"
                   >
                     <SocialIcon id={s.id} className="h-[17px] w-[17px]" />
                   </a>

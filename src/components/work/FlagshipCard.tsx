@@ -56,7 +56,7 @@ export function FlagshipCard({ project, dimmed }: { project: Project; dimmed?: b
               state={{ fromHome: true }}
               preventScrollReset
               onFocus={prefetchCaseStudy}
-              className="group inline-flex h-12 items-center gap-2 rounded-full bg-fg px-6 text-[0.95rem] font-medium text-ink transition-colors hover:bg-accent"
+              className="group inline-flex h-12 items-center gap-2 hl-invert rounded-full bg-fg px-6 text-[0.95rem] font-medium text-ink"
             >
               Read the case study
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45" aria-hidden />

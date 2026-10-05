@@ -113,7 +113,7 @@ function FilterChip({ active, onClick, children }: { active: boolean; onClick: (
       onClick={onClick}
       className={cn(
         "h-9 shrink-0 whitespace-nowrap rounded-full border px-3.5 text-[0.82rem] transition-colors duration-300",
-        active ? "border-fg bg-fg text-ink" : "border-line text-muted hover:border-fg/40 hover:text-fg",
+        active ? "border-fg bg-fg text-ink" : "hl border-line text-muted",
       )}
     >
       {children}

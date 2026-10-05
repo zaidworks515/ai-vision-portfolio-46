@@ -5,31 +5,33 @@
 /*
   Design tokens for the bright theme.
   Palette adapted from the previous portfolio (zaidportfolio.lovable.app) and the
-  resume: white surfaces, a deep primary blue (#0063cc) for anything active or
-  linked, gold as the warm secondary, navy text. Every text token clears WCAG AA
-  (≥ 4.5:1) on white, the section tint and raised surfaces.
+  resume: a soft blue-grey page with white cards, a deep primary blue (#0063cc)
+  for anything active or linked, gold as the warm secondary, navy text. Every
+  text token clears WCAG AA (≥ 4.5:1) on the page, cards, the section tint and
+  raised surfaces.
 
-  `ink` is the page colour and doubles as "text on a filled accent": white on the
-  blue buttons here, navy on the gold buttons inside `.theme-blue`.
+  `ink` is the page colour and doubles as "text on a filled accent": near-white
+  on the blue buttons here, navy on the gold buttons inside `.theme-blue`.
 */
 @layer base {
   :root {
-    --ink: 0 0% 100%;
+    --ink: 216 33% 96%;
     --surface: 0 0% 100%;
-    --raised: 213 33% 96%;
-    --tint: 211 100% 97.5%;
-    --line: 214 24% 89%;
+    --raised: 214 30% 92.5%;
+    --tint: 213 55% 94%;
+    --line: 214 22% 87.5%;
     --fg: 215 32% 15%;
     --muted: 215 16% 37%;
-    --dim: 215 13% 44%;
+    --dim: 215 14% 40%;
     --accent: 211 100% 40%;
     --accent-hover: 211 100% 33%;
     --gold: 45 100% 51%;
-    --live: 152 72% 28%;
+    --live: 152 72% 25%;
+    --wash: 0.1;
 
     --shadow-card: 0 1px 2px hsl(215 30% 20% / 0.05), 0 12px 32px -18px hsl(215 45% 25% / 0.22);
     --shadow-lift: 0 2px 4px hsl(215 30% 20% / 0.05), 0 22px 48px -22px hsl(211 100% 35% / 0.32);
-    --tint-end: 211 60% 98.5%;
+    --tint-end: 214 42% 95.5%;
     --scroll-thumb: 214 20% 80%;
 
     /* Chart colours, validated (dataviz checker) against each theme's card surface */
@@ -62,6 +64,7 @@
     --dim: 216 10% 60%;
     --accent: 213 70% 70%;
     --accent-hover: 213 75% 77%;
+    --wash: 0.14;
     --gold: 42 68% 62%;
     --live: 152 40% 58%;
     --scroll-thumb: 220 10% 30%;
@@ -224,6 +227,87 @@
 
   .serif-accent {
     @apply font-serif font-normal italic tracking-normal;
+  }
+
+  /*
+    One hover language for every control, also shown on keyboard focus.
+      .hl        quiet controls (outlined, tabs, chips): soft accent wash, accent text
+      .hl-solid  filled accent buttons: deeper fill plus a glow ring
+      .hl-invert dark filled buttons: switch to the accent fill
+      .hl-text   inline text links: accent colour plus underline
+    Hover text stays at 5.6:1 or better in both themes and on the blue band.
+  */
+  .hl,
+  .hl-solid,
+  .hl-invert,
+  .hl-text {
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.25s ease,
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .hl:focus-visible {
+    color: hsl(var(--accent-hover));
+    background-color: hsl(var(--accent) / var(--wash));
+    border-color: hsl(var(--accent) / 0.55);
+  }
+  .hl-solid:focus-visible {
+    background-color: hsl(var(--accent-hover));
+    box-shadow:
+      0 0 0 4px hsl(var(--accent) / 0.22),
+      0 12px 26px -12px hsl(var(--accent) / 0.75);
+  }
+  .hl-invert:focus-visible {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--ink));
+    box-shadow: 0 0 0 4px hsl(var(--accent) / 0.22);
+  }
+  .hl-text:focus-visible {
+    color: hsl(var(--accent-hover));
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  /* On the deep-blue band an accent wash turns muddy, so quiet controls go white. */
+  .theme-blue .hl:focus-visible {
+    color: hsl(var(--fg));
+    background-color: hsl(var(--fg) / 0.12);
+    border-color: hsl(var(--fg) / 0.7);
+  }
+
+  /* Hover only where a real pointer exists, so taps on phones don't leave it stuck. */
+  @media (hover: hover) {
+    .hl:hover {
+      color: hsl(var(--accent-hover));
+      background-color: hsl(var(--accent) / var(--wash));
+      border-color: hsl(var(--accent) / 0.55);
+    }
+    .hl-solid:hover {
+      background-color: hsl(var(--accent-hover));
+      box-shadow:
+        0 0 0 4px hsl(var(--accent) / 0.22),
+        0 12px 26px -12px hsl(var(--accent) / 0.75);
+    }
+    .hl-invert:hover {
+      background-color: hsl(var(--accent));
+      color: hsl(var(--ink));
+      box-shadow: 0 0 0 4px hsl(var(--accent) / 0.22);
+    }
+    .hl-text:hover {
+      color: hsl(var(--accent-hover));
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+    .theme-blue .hl:hover {
+      color: hsl(var(--fg));
+      background-color: hsl(var(--fg) / 0.12);
+      border-color: hsl(var(--fg) / 0.7);
+    }
   }
 }
 

@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 export type Theme = "light" | "dark";
 
 const STORAGE_KEY = "theme";
-const THEME_COLOR: Record<Theme, string> = { light: "#ffffff", dark: "#171a21" };
+const THEME_COLOR: Record<Theme, string> = { light: "#f1f4f8", dark: "#171a21" };
 
 const current = (): Theme => (document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light");
 

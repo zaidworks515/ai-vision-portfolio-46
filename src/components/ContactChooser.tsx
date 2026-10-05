@@ -81,7 +81,7 @@ export function ContactChooser() {
         aria-expanded={open}
         aria-controls="contact-menu"
         onClick={() => setOpen((v) => !v)}
-        className="group inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 text-[0.95rem] font-medium text-ink shadow-[0_8px_20px_-10px_hsl(var(--accent)/0.6)] transition-colors duration-300 hover:bg-accent-hover"
+        className="group inline-flex h-12 items-center gap-2 rounded-full bg-accent px-6 text-[0.95rem] font-medium text-ink hl-solid shadow-[0_8px_20px_-10px_hsl(var(--accent)/0.6)]"
       >
         Start a conversation
         <ChevronDown className={cn("h-4 w-4 transition-transform duration-300", open && "rotate-180")} aria-hidden />
@@ -110,7 +110,7 @@ export function ContactChooser() {
                 target={o.external ? "_blank" : undefined}
                 rel={o.external ? "noreferrer" : undefined}
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 rounded-xl px-3 py-2.5 outline-none transition-colors hover:bg-raised focus-visible:bg-raised"
+                className="flex items-center gap-3 hl rounded-xl px-3 py-2.5 outline-none"
               >
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line bg-raised text-accent">
                   <o.icon className="h-4 w-4" aria-hidden />

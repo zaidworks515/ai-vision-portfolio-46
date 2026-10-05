@@ -120,7 +120,7 @@ export function ConcurrencyChart() {
       </div>
 
       <details className="mt-3 text-[0.8rem] text-muted">
-        <summary className="cursor-pointer font-mono text-[0.68rem] text-dim hover:text-fg">Show data table</summary>
+        <summary className="hl-text cursor-pointer font-mono text-[0.68rem] text-dim">Show data table</summary>
         <table className="mt-2 w-full max-w-sm text-left font-mono text-[0.72rem] tabular">
           <thead className="text-dim">
             <tr>

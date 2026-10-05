@@ -14,7 +14,7 @@ export function ThemeToggle({ className, withLabel = false }: { className?: stri
       aria-label={label}
       title={label}
       className={cn(
-        "inline-flex h-10 items-center justify-center gap-2 rounded-full border border-line bg-surface text-fg transition-colors duration-300 hover:border-accent/50 hover:text-accent",
+        "inline-flex h-10 items-center justify-center gap-2 rounded-full hl border border-line bg-surface text-fg",
         withLabel ? "px-3.5 text-[0.8rem]" : "w-10",
         className,
       )}

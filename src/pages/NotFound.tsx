@@ -18,7 +18,7 @@ export default function NotFound() {
       <h1 className="mt-8 text-display-md font-medium">This signal went nowhere.</h1>
       <Link
         to="/"
-        className="mt-10 inline-flex h-11 items-center gap-2 rounded-full bg-fg px-5 text-[0.9rem] font-medium text-ink"
+        className="mt-10 inline-flex h-11 items-center gap-2 hl-invert rounded-full bg-fg px-5 text-[0.9rem] font-medium text-ink"
       >
         <ArrowLeft className="h-4 w-4" aria-hidden /> Back to the portfolio
       </Link>

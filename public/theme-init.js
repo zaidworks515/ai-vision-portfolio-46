@@ -10,5 +10,5 @@
   }
   root.setAttribute("data-theme", theme);
   var meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.setAttribute("content", theme === "dark" ? "#171a21" : "#ffffff");
+  if (meta) meta.setAttribute("content", theme === "dark" ? "#171a21" : "#f1f4f8");
 })();
