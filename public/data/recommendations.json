@@ -1,0 +1,25 @@
+{
+  "_readme": "Runtime overrides for the Recommendations section. Any non-empty string field here replaces the bundled default for the same id; delete a field (or this whole file) and the default comes back. Add a new object with id, name, text and profileUrl to show another recommendation. Update verifiedOn (YYYY-MM-DD) whenever you re-check a profile.",
+  "recommendations": [
+    {
+      "id": "raza-abbas",
+      "name": "Raza Abbas",
+      "designation": "",
+      "company": "Trade Foresight",
+      "relationship": "Worked with Zaid at Inseyab",
+      "profileUrl": "https://www.linkedin.com/in/raza-abbas-zafar/",
+      "photo": "/media/people/raza-abbas.webp",
+      "verifiedOn": "2026-10-02"
+    },
+    {
+      "id": "mazhar-niaz",
+      "name": "Mazhar Niaz",
+      "designation": "",
+      "company": "Goomerce",
+      "relationship": "Zaid’s senior developer at Tesseract Innovations",
+      "profileUrl": "https://www.linkedin.com/in/mazharniaz/",
+      "photo": "/media/people/mazhar-niaz.webp",
+      "verifiedOn": "2026-10-02"
+    }
+  ]
+}
